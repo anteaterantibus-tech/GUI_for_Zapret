@@ -14,7 +14,7 @@
     <ApplicationIcon>app.ico</ApplicationIcon>
     <AssemblyTitle>Zapret Control</AssemblyTitle>
     <Product>Zapret Control</Product>
-    <Version>1.0.13</Version>
+    <Version>1.0.14</Version>
     <NoWarn>CA1416;WFO0003</NoWarn>
   </PropertyGroup>
 

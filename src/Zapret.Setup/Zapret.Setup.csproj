@@ -12,7 +12,7 @@
     <AssemblyTitle>Zapret Control Setup</AssemblyTitle>
     <Product>Zapret Control</Product>
     <Description>Zapret Control installer</Description>
-    <Version>1.0.13</Version>
+    <Version>1.0.14</Version>
     <InvariantGlobalization>true</InvariantGlobalization>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>partial</TrimMode>

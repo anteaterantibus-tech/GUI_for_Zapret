@@ -73,10 +73,14 @@ public partial class MainWindow : Window
         if (AppState.Paths is null)
         {
             var choice = MessageBox.Show(
-                "Папка со сборкой zapret не найдена.\n\nНайти её вручную?",
-                "Zapret Control", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                "Папка со сборкой zapret не найдена.\n\n" +
+                "Да - скачать последнюю сборку автоматически (около 60 МБ).\n" +
+                "Нет - указать папку вручную.\n" +
+                "Отмена - сделать позже.",
+                "Zapret Control", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
 
-            if (choice == MessageBoxResult.Yes) AskForFolder();
+            if (choice == MessageBoxResult.Yes) await DownloadZapretAsync();
+            else if (choice == MessageBoxResult.No) AskForFolder();
         }
 
         Navigate(AppState.Paths is null ? "settings" : "strategies");
@@ -375,6 +379,58 @@ public partial class MainWindow : Window
         catch (Exception ex)
         {
             ShowError(ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// First run without any zapret folder: download the latest upstream release into
+    /// %LOCALAPPDATA%\ZapretControl\zapret, the same place the installer uses.
+    /// </summary>
+    private async Task DownloadZapretAsync()
+    {
+        var folder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "ZapretControl", "zapret");
+        var paths = new ZapretPaths(folder);
+
+        try
+        {
+            Directory.CreateDirectory(paths.Root);
+            Navigate("settings");
+            ShowStatus("Поиск последней сборки zapret...");
+
+            var release = await AppState.Updater.GetLatestReleaseAsync();
+            if (release is null)
+            {
+                ShowError("Не удалось получить последнюю сборку zapret. Проверьте интернет и попробуйте ещё раз.");
+                return;
+            }
+
+            ShowStatus($"Скачивание zapret {release.Tag}...");
+            var progress = new Progress<DownloadProgress>(p =>
+                ShowStatus(p.Percent is { } percent
+                    ? $"Скачивание zapret {release.Tag}: {percent}%"
+                    : $"Скачивание zapret {release.Tag}: {p.Received / 1024} КБ"));
+            var log = new Progress<string>(line => ShowStatus(line));
+
+            var outcome = await UpdateCoordinator.InstallAsync(
+                release, paths, UpdateCoordinator.BuildOptions(), log, progress);
+
+            if (!outcome.Success)
+            {
+                ShowError("Сборка не установлена: " + outcome.Message);
+                return;
+            }
+
+            ShowStatus($"Сборка zapret {outcome.NewVersion} готова.");
+            Navigate("strategies");
+            RefreshStatus();
+            ShowInfo($"Сборка zapret {outcome.NewVersion} скачана:\n{paths.Root}\n\nТеперь можно подобрать рабочую стратегию.");
+        }
+        catch (Exception ex)
+        {
+            AppLog.Error("Скачивание zapret", ex);
+            ShowError("Не удалось скачать сборку: " + ex.Message);
         }
     }
 
