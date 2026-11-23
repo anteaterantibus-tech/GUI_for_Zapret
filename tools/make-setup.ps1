@@ -1,5 +1,7 @@
 param(
     [string]$Version = "",
+    [string]$Payload = "",
+    [string]$OutputName = "",
     [switch]$SkipPublish,
     [switch]$NoDesktopShortcut
 )
@@ -13,7 +15,7 @@ if ([string]::IsNullOrWhiteSpace($Version)) {
     $Version = if ($match.Success) { $match.Groups[1].Value } else { "1.0.0" }
 }
 
-$payload = Join-Path $root "release\ZapretControl-$Version.zip"
+$payload = if (-not [string]::IsNullOrWhiteSpace($Payload)) { $Payload } else { Join-Path $root "release\ZapretControl-$Version.zip" }
 if (-not (Test-Path -LiteralPath $payload)) {
     Write-Host "Package zip not found, building it first..."
     & (Join-Path $PSScriptRoot "make-release.ps1") -Version $Version
@@ -21,7 +23,12 @@ if (-not (Test-Path -LiteralPath $payload)) {
 
 $buildDir = Join-Path $root "setup\build"
 $stub = Join-Path $buildDir "ZapretControlSetup.exe"
-$output = Join-Path $root "release\ZapretControl-$Version-Setup.exe"
+$output = if (-not [string]::IsNullOrWhiteSpace($OutputName)) {
+    Join-Path $root "release\$OutputName"
+}
+else {
+    Join-Path $root "release\ZapretControl-$Version-Setup.exe"
+}
 
 if (-not $SkipPublish) {
     if (Test-Path -LiteralPath $buildDir) { Remove-Item -LiteralPath $buildDir -Recurse -Force }
@@ -61,7 +68,7 @@ $setupMb = [math]::Round((Get-Item -LiteralPath $output).Length / 1MB, 1)
 Write-Host ""
 Write-Host "[OK] Installer stub: $stub ($stubMb MB)"
 Write-Host "[OK] Setup exe:      $output ($setupMb MB)"
-Write-Host "     Single file, contains the app, the zapret build and the PDF manual."
+Write-Host "     Single file, contains the app and the payload."
 
 if (-not $NoDesktopShortcut) {
     & (Join-Path $PSScriptRoot "update-shortcut.ps1") -ReleaseDir (Join-Path $root "release")

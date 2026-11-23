@@ -10,12 +10,15 @@
 
 ## Скачать готовую сборку
 
-В [Releases](https://github.com/anteaterantibus-tech/GUI_for_Zapret/releases) лежит только оболочка: `ZapretControl-<версия>-Portable.exe`. Стратегии и сборка zapret в релиз не входят.
+В [Releases](https://github.com/anteaterantibus-tech/GUI_for_Zapret/releases) два файла, оба без стратегий и без сборки zapret:
+
+- `ZapretControl-<версия>-Portable.exe`: портативная оболочка, рядом нужна папка zapret.
+- `ZapretControl-<версия>-Setup-Shell.exe`: установщик только оболочки, ставит приложение и ярлыки.
 
 1. Скачайте zapret-discord-youtube: https://github.com/Flowseal/zapret-discord-youtube/releases/latest
 2. Распакуйте архив в папку без кириллицы в пути.
-3. Положите `ZapretControl-<версия>-Portable.exe` рядом с папкой `zapret` или укажите папку сборки в «Настройках».
-4. Запустите exe и подтвердите запрос администратора.
+3. Запустите `ZapretControl-<версия>-Portable.exe` рядом с папкой zapret или установите `Setup-Shell` и укажите папку сборки в «Настройках».
+4. Подтвердите запрос администратора.
 
 Портативный exe показывает `Zapret Control Portable` в заголовке окна.
 
