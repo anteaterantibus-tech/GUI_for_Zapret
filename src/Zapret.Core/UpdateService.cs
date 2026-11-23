@@ -8,7 +8,7 @@ namespace Zapret.Core;
 public static class AppInfo
 {
     public const string Name = "Zapret Control";
-    public const string Version = "1.0.12";
+    public const string Version = "1.0.13";
 
     /// <summary>
     /// The portable build is the exe whose file name carries the Portable suffix.

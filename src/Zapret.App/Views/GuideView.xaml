@@ -18,6 +18,14 @@
                         VerticalAlignment="Center" Click="OpenPdf_Click" />
             </Grid>
 
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10" Background="#1A1410" BorderBrush="#4A3A1A">
+                <StackPanel>
+                    <TextBlock Text="Это оболочка, а не средство обхода" Style="{StaticResource H2}" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0" TextWrapping="Wrap"
+                               Text="Zapret Control только запускает winws.exe из вашей папки со сборкой Flowseal/zapret-discord-youtube (движок zapret от bol-van). Своего механизма обхода, VPN или прокси в приложении нет, трафик через сторонние серверы не идёт." />
+                </StackPanel>
+            </Border>
+
             <Border Style="{StaticResource Card}" Margin="0,0,0,10">
                 <Grid>
                     <Grid.ColumnDefinitions>
