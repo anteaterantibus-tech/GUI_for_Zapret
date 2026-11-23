@@ -6,6 +6,17 @@
 
 ![Стратегии](docs/screenshot.png)
 
+## Скачать готовую сборку
+
+В [Releases](https://github.com/anteaterantibus-tech/GUI_for_Zapret/releases) лежит только оболочка: `ZapretControl-<версия>-Portable.exe`. Стратегии и сборка zapret в релиз не входят.
+
+1. Скачайте zapret-discord-youtube 1.10.4: https://github.com/Flowseal/zapret-discord-youtube/releases/tag/1.10.4
+2. Распакуйте архив в папку без кириллицы в пути.
+3. Положите `ZapretControl-<версия>-Portable.exe` рядом с папкой `zapret` или укажите папку сборки в «Настройках».
+4. Запустите exe и подтвердите запрос администратора.
+
+Портативный exe показывает `Zapret Control Portable` в заголовке окна.
+
 ## Что умеет
 
 | Раздел | Возможности |
