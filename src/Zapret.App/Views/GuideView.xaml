@@ -41,7 +41,7 @@
                     <StackPanel Grid.Column="1" Margin="12,0,12,0">
                         <TextBlock Text="Укажите папку zapret" Style="{StaticResource H2}" />
                         <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
-                                   Text="Приложению нужна распакованная сборка zapret: папка, в которой лежит bin\winws.exe. Обычно она находится автоматически, сменить можно в «Настройках»." />
+                                   Text="Приложению нужна распакованная сборка zapret: папка, в которой лежит bin\winws.exe. Обычно она находится автоматически, сменить можно в «Настройках». Если сборки нет, приложение предложит скачать свежую версию из GitHub." />
                     </StackPanel>
                     <Button Grid.Column="2" Content="Настройки" Style="{StaticResource SmallButton}"
                             VerticalAlignment="Top" Click="NavigateSettings_Click" />
