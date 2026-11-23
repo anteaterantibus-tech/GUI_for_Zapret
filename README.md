@@ -1,5 +1,7 @@
 # Zapret Control
 
+> **Zapret Control не является средством обхода.** Это только графическая оболочка для проекта [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube), который использует движок [zapret](https://github.com/bol-van/zapret). Приложение не содержит собственного механизма обхода, не является VPN, прокси или сервисом и не передаёт трафик через сторонние серверы. Оно лишь запускает `winws.exe` из вашей папки со сборкой 1.10.4 с теми же аргументами, что и её bat-файлы.
+
 Графическое приложение для сборки [Flowseal/zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube) (версия 1.10.4): запускает `winws.exe`, ставит стратегию в автозапуск, подбирает рабочую конфигурацию, проверяет систему и обновляет сборку прямо из GitHub.
 
 Подробный разбор самой сборки, её истории и механизма обновления: [docs/ANALYSIS.md](docs/ANALYSIS.md).
