@@ -1,0 +1,92 @@
+Корень: D:\PROJECT\OpenCode\Zapret\src\zapret
+Стратегий: 22, целей: 8, GameFilter: включён (TCP+UDP 1024-65535)
+
+=== general ===
+RESULT	general	отказов 1, UDP	28/29	lat=720	dpi=ok+ok	udp=fail	video=ok	score=2976	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT ===
+RESULT	ALT	отказов 1, UDP	28/29	lat=664	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT2 ===
+RESULT	ALT2	отказов 1, UDP	28/29	lat=657	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT3 ===
+RESULT	ALT3	отказов 1, UDP	28/29	lat=657	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT4 ===
+RESULT	ALT4	отказов 1, UDP	28/29	lat=662	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT5 ===
+RESULT	ALT5	отказов 1, UDP	28/29	lat=649	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT6 ===
+RESULT	ALT6	отказов 1, UDP	28/29	lat=660	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT7 ===
+RESULT	ALT7	отказов 1, UDP	28/29	lat=657	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT8 ===
+RESULT	ALT8	отказов 1, UDP	28/29	lat=679	dpi=ok+ok	udp=fail	video=ok	score=2977	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT9 ===
+RESULT	ALT9	отказов 1, UDP	28/29	lat=654	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT10 ===
+RESULT	ALT10	отказов 1, UDP	28/29	lat=655	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT11 ===
+RESULT	ALT11	отказов 1, UDP	28/29	lat=659	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT12 ===
+RESULT	ALT12	отказов 1, UDP	28/29	lat=650	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== ALT13 ===
+RESULT	ALT13	отказов 1, UDP	28/29	lat=694	dpi=ok+ok	udp=fail	video=ok	score=2977	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== EXP ===
+RESULT	EXP	отказов 1, UDP	28/29	lat=656	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== FAKE TLS AUTO ===
+RESULT	FAKE TLS AUTO	отказов 1, UDP	28/29	lat=658	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== FAKE TLS AUTO ALT ===
+RESULT	FAKE TLS AUTO ALT	отказов 1, UDP	28/29	lat=665	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== FAKE TLS AUTO ALT2 ===
+RESULT	FAKE TLS AUTO ALT2	отказов 1, UDP	28/29	lat=645	dpi=ok+ok	udp=fail	video=ok	score=2979	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== FAKE TLS AUTO ALT3 ===
+RESULT	FAKE TLS AUTO ALT3	отказов 1, UDP	28/29	lat=653	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== SIMPLE FAKE ===
+RESULT	SIMPLE FAKE	отказов 1, UDP	28/29	lat=663	dpi=ok+ok	udp=fail	video=ok	score=2978	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== SIMPLE FAKE ALT ===
+RESULT	SIMPLE FAKE ALT	отказов 1, UDP, видео	28/29	lat=709	dpi=ok+ok	udp=fail	video=LikelyBlocked	score=2726	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+=== SIMPLE FAKE ALT2 ===
+RESULT	SIMPLE FAKE ALT2	отказов 1, UDP	28/29	lat=681	dpi=ok+ok	udp=fail	video=ok	score=2977	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+Служба zapret: RUNNING

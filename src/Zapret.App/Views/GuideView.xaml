@@ -1,0 +1,207 @@
+<UserControl x:Class="Zapret.App.Views.GuideView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <Grid Margin="0,0,0,14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Как пользоваться" Style="{StaticResource H1}" />
+                    <TextBlock Style="{StaticResource Muted}" Margin="0,4,0,0"
+                               Text="Короткая инструкция: шесть шагов и ответы на частые вопросы. Подробное руководство открывается кнопкой ниже." />
+                </StackPanel>
+                <Button Grid.Column="1" Content="Подробное руководство (PDF)" Style="{StaticResource PrimaryButton}"
+                        VerticalAlignment="Center" Click="OpenPdf_Click" />
+            </Grid>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="1" FontWeight="Bold" Foreground="#08120B" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Укажите папку zapret" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="Приложению нужна распакованная сборка zapret: папка, в которой лежит bin\winws.exe. Обычно она находится автоматически, сменить можно в «Настройках»." />
+                    </StackPanel>
+                    <Button Grid.Column="2" Content="Настройки" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Top" Click="NavigateSettings_Click" />
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="2" FontWeight="Bold" Foreground="#08120B" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Подберите рабочую стратегию" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="«Подбор и тест» → «Найти лучшую». Приложение по очереди запустит стратегии и проверит Discord, YouTube, Google и другие сайты. Это занимает несколько минут. Двойной щелчок по лучшей строке сразу запускает её." />
+                    </StackPanel>
+                    <Button Grid.Column="2" Content="Подобрать" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Top" Click="NavigateTest_Click" />
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="3" FontWeight="Bold" Foreground="#08120B" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Запустите обход" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="Кнопка «Запустить» в левой панели или в карточке стратегии. Зелёная точка и время работы означают, что обход работает. Все сообщения winws видны в «Журнале winws»." />
+                    </StackPanel>
+                    <Button Grid.Column="2" Content="Стратегии" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Top" Click="NavigateStrategies_Click" />
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="4" FontWeight="Bold" Foreground="#08120B" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Включите автозапуск" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="«В автозапуск» в карточке стратегии устанавливает службу Windows: обход включается при загрузке компьютера без открытия приложения. Вернуть ручной режим можно кнопкой «Убрать службу»." />
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource AccentBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="5" FontWeight="Bold" Foreground="#08120B" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Обновляйте сборку из приложения" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="«Обновления» → «Проверить обновления» → «Скачать и установить». Перед установкой создаётся резервная копия, ваши списки и настройки сохраняются. Можно включить автоматическую установку в «Настройках»." />
+                    </StackPanel>
+                    <Button Grid.Column="2" Content="Обновления" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Top" Click="NavigateUpdate_Click" />
+                </Grid>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Border Width="30" Height="30" CornerRadius="15" Background="{StaticResource WarnBrush}"
+                            VerticalAlignment="Top">
+                        <TextBlock Text="6" FontWeight="Bold" Foreground="#1A1200" FontSize="15"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                        <TextBlock Text="Если что-то не работает" Style="{StaticResource H2}" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,4,0,0"
+                                   Text="Начните с «Диагностики»: она находит конфликты программ, прокси, DNS и предлагает исправление. Не помогло - подберите стратегию заново. После смены Wi-Fi или провайдера рабочая стратегия часто меняется." />
+                    </StackPanel>
+                    <Button Grid.Column="2" Content="Диагностика" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Top" Click="NavigateDiagnostics_Click" />
+                </Grid>
+            </Border>
+
+            <TextBlock Text="ЧАСТЫЕ ВОПРОСЫ" FontSize="11" FontWeight="SemiBold"
+                       Foreground="{StaticResource MutedBrush}" Margin="2,10,0,8" />
+
+            <Expander Header="Кнопка «Запустить» неактивна" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="Стратегия уже запущена как служба Windows. Нажмите «Убрать службу» в карточке стратегии, после этого ручной запуск станет доступен. Одновременно может работать только один обход." />
+            </Expander>
+
+            <Expander Header="Антивирус удалил WinDivert" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="WinDivert это компонент перехвата трафика, антивирусы иногда считают его рискованным. Добавьте папку сборки в исключения и восстановите файл bin\WinDivert64.sys, затем переустановите сборку через «Обновления»." />
+            </Expander>
+
+            <Expander Header="Discord работает нестабильно" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="Попробуйте стратегию ALT11, ALT12 или ALT13. Если пропадает голос, включите GameFilter в режиме TCP и UDP. Диагностика умеет очищать кэш Discord: это помогает при зависаниях интерфейса и звонков." />
+            </Expander>
+
+            <Expander Header="Что такое GameFilter и IPSet" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="GameFilter включает обход для игр и сервисов на портах выше 1023. IPSet задаёт, к каким адресам применяется обход: none - только домены из списков, any - все адреса, loaded - большой список подсетей из репозитория. Меняются во вкладке «Списки и фильтры»." />
+            </Expander>
+
+            <Expander Header="Мои изменения в списках не потеряются?" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="При обновлении файлы из папки lists объединяются: ваши строки остаются, новые из релиза добавляются, устаревшие убираются. Свои домены удобнее держать в list-general-user.txt: этот файл приложение не меняет никогда." />
+            </Expander>
+
+            <Expander Header="Обход не нужен, как всё выключить" Foreground="{StaticResource TextBrush}"
+                      Margin="0,0,0,4">
+                <TextBlock Style="{StaticResource Muted}" Margin="8,6,8,10"
+                           Text="Нажмите «Остановить» в левой панели. Если обход установлен как служба, сначала нажмите «Убрать службу». Автозапуск приложения отключается в «Настройках»." />
+            </Expander>
+
+            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Данные приложения" Style="{StaticResource H2}" />
+                        <TextBlock x:Name="PathsText" Style="{StaticResource Mono}" FontSize="11" Margin="0,8,0,0"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                    <Button Grid.Column="1" Content="Открыть папку сборки" Style="{StaticResource SmallButton}"
+                            VerticalAlignment="Center" Click="OpenFolder_Click" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

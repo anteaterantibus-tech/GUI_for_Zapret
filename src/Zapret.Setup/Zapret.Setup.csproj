@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>ZapretControlSetup</AssemblyName>
+    <RootNamespace>Zapret.Setup</RootNamespace>
+    <ApplicationIcon>..\Zapret.App\app.ico</ApplicationIcon>
+    <AssemblyTitle>Zapret Control Setup</AssemblyTitle>
+    <Product>Zapret Control</Product>
+    <Description>Zapret Control installer</Description>
+    <Version>1.0.12</Version>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>partial</TrimMode>
+    <NoWarn>IL2026;IL2104;IL3053</NoWarn>
+  </PropertyGroup>
+
+</Project>

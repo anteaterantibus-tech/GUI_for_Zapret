@@ -1,0 +1,111 @@
+<UserControl x:Class="Zapret.App.Views.StrategiesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,0,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Стратегии обхода" Style="{StaticResource H1}" />
+                <TextBlock x:Name="SubtitleText" Style="{StaticResource Muted}" Margin="0,4,0,0"
+                           Text="Выберите стратегию и запустите её. Настройки команд читаются прямо из .bat файлов сборки." />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="Открыть .bat" Style="{StaticResource SmallButton}" Margin="0,0,8,0"
+                        Click="OpenBat_Click" />
+                <Button Content="Перечитать файлы" Style="{StaticResource SmallButton}" Click="Reload_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320" />
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="StrategyList" SelectionChanged="StrategyList_SelectionChanged"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <CheckBox x:Name="TransferCheck" Margin="0,3,8,0" VerticalAlignment="Top"
+                                      Tag="{Binding}" Checked="TransferCheck_Changed" Unchecked="TransferCheck_Changed" />
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="{Binding Name}" FontWeight="SemiBold" FontSize="13.5" />
+                                <TextBlock Text="{Binding Summary}" FontSize="11.5" Foreground="{StaticResource MutedBrush}"
+                                           Margin="0,3,0,0" TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="Перенос стратегий" Style="{StaticResource H2}" />
+                            <TextBlock Style="{StaticResource Muted}" Margin="0,6,0,0"
+                                       Text="Отметьте галочками нужные стратегии в списке. Без отметок экспортируется выбранная. Импорт принимает .bat файлы, папку и архив .zip; при совпадении имени приложение спросит, заменить ли файл." />
+                            <WrapPanel Margin="0,10,0,0">
+                                <Button Content="Импорт .bat/.zip..." Style="{StaticResource SmallButton}" Margin="0,0,8,8"
+                                        Click="ImportFiles_Click" />
+                                <Button Content="Импорт из папки..." Style="{StaticResource SmallButton}" Margin="0,0,8,8"
+                                        Click="ImportFolder_Click" />
+                                <Button Content="Экспорт в папку..." Style="{StaticResource SmallButton}" Margin="0,0,8,8"
+                                        Click="ExportFolder_Click" />
+                                <Button Content="Экспорт в zip..." Style="{StaticResource SmallButton}" Margin="0,0,0,8"
+                                        Click="ExportZip_Click" />
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <TextBlock x:Name="SelectedName" Style="{StaticResource H2}" Text="-" />
+                                    <TextBlock x:Name="SelectedFile" Style="{StaticResource Mono}" Text="" Margin="0,3,0,0" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Top">
+                                    <Button x:Name="StartButton" Content="Запустить" Style="{StaticResource PrimaryButton}"
+                                            Margin="0,0,8,0" Click="Start_Click" />
+                                    <Button x:Name="ServiceButton" Content="В службу" Style="{StaticResource ButtonBase}"
+                                            Click="Service_Click" />
+                                </StackPanel>
+                            </Grid>
+
+                            <TextBlock x:Name="SelectedNote" Style="{StaticResource Muted}" Margin="0,12,0,0" />
+
+                            <WrapPanel x:Name="ChipsPanel" Margin="0,12,0,0" />
+
+                            <Separator />
+
+                            <TextBlock Text="Блоки фильтрации (--new)" Style="{StaticResource H2}" />
+                            <StackPanel x:Name="ProfilesPanel" Margin="0,10,0,0" />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</UserControl>

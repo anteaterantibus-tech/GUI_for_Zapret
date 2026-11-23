@@ -1,0 +1,82 @@
+<UserControl x:Class="Zapret.App.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel>
+            <StackPanel Margin="0,0,0,14">
+                <TextBlock Text="Настройки" Style="{StaticResource H1}" />
+                <TextBlock Style="{StaticResource Muted}" Margin="0,4,0,0"
+                           Text="Приложение работает поверх обычной распакованной сборки zapret и не меняет её файлы без вашего участия." />
+            </StackPanel>
+
+            <Border Style="{StaticResource Card}">
+                <StackPanel>
+                    <TextBlock Text="Папка сборки" Style="{StaticResource H2}" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="11.5" Margin="0,3,0,0"
+                               Text="Нужна папка, в которой лежат bin\winws.exe, lists и general*.bat." />
+                    <TextBox x:Name="RootBox" Style="{StaticResource Input}" Margin="0,10,0,0" IsReadOnly="True" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <Button Content="Выбрать папку..." Style="{StaticResource SmallButton}" Margin="0,0,8,0"
+                                Click="ChooseFolder_Click" />
+                        <Button Content="Определить автоматически" Style="{StaticResource SmallButton}"
+                                Click="AutoDetect_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                <StackPanel>
+                    <TextBlock Text="Поведение" Style="{StaticResource H2}" />
+                    <CheckBox x:Name="RunAtLogonCheck" Content="Запускать Zapret Control при входе в Windows (в трее)"
+                              Margin="0,10,0,0" Checked="Setting_Changed" Unchecked="Setting_Changed" />
+                    <CheckBox x:Name="AutoStartCheck" Content="Автоматически запускать выбранную стратегию при старте"
+                              Checked="Setting_Changed" Unchecked="Setting_Changed" />
+                    <CheckBox x:Name="TrayCheck" Content="Сворачивать в трей вместо закрытия"
+                              Checked="Setting_Changed" Unchecked="Setting_Changed" />
+                    <CheckBox x:Name="UpdateCheckBox" Content="Проверять обновления сборки при запуске"
+                              Checked="Setting_Changed" Unchecked="Setting_Changed" />
+                    <CheckBox x:Name="AutoInstallCheck"
+                              Content="Устанавливать обновления автоматически при запуске"
+                              Checked="Setting_Changed" Unchecked="Setting_Changed" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0"
+                               Text="Автоустановка скачивает релиз и ставит его без вопросов. Запущенная стратегия будет остановлена и запущена заново." />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                <StackPanel>
+                    <TextBlock Text="Проверка соединений" Style="{StaticResource H2}" />
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                        <TextBlock Text="Таймаут запроса" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        <ComboBox x:Name="TimeoutCombo" Width="110" SelectionChanged="TimeoutCombo_SelectionChanged">
+                            <ComboBoxItem Content="3 с" Tag="3" />
+                            <ComboBoxItem Content="4 с" Tag="4" />
+                            <ComboBoxItem Content="5 с" Tag="5" />
+                            <ComboBoxItem Content="6 с" Tag="6" />
+                            <ComboBoxItem Content="8 с" Tag="8" />
+                        </ComboBox>
+                    </StackPanel>
+                    <TextBlock x:Name="TargetsText" Style="{StaticResource Muted}" FontSize="11.5" Margin="0,10,0,0" />
+                    <Button Content="Загрузить цели из utils\targets.txt" Style="{StaticResource SmallButton}"
+                            Margin="0,8,0,0" HorizontalAlignment="Left" Click="LoadTargets_Click" />
+                    <Button Content="Вернуть стандартный набор" Style="{StaticResource SmallButton}"
+                            Margin="0,8,0,0" HorizontalAlignment="Left" Click="ResetTargets_Click" />
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                <StackPanel>
+                    <TextBlock Text="О приложении" Style="{StaticResource H2}" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="12" Margin="0,8,0,0"
+                               Text="Zapret Control - графическая оболочка для сборки Flowseal/zapret-discord-youtube. Приложение не является VPN и не отправляет трафик через третьи серверы: оно запускает winws.exe из вашей папки сборки с теми же аргументами, что и .bat файлы." />
+                    <TextBlock x:Name="AboutText" Style="{StaticResource Mono}" FontSize="11" Margin="0,10,0,0" />
+                    <Button Content="Открыть журнал приложения" Style="{StaticResource SmallButton}"
+                            Margin="0,10,0,0" HorizontalAlignment="Left" Click="OpenAppLog_Click" />
+                    <TextBlock Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0"
+                               Text="В журнал пишутся этапы работы и предупреждения, если интерфейс не отвечал дольше 2 секунд." />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

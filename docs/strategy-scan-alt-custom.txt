@@ -1,0 +1,8 @@
+Корень: D:\PROJECT\OpenCode\Zapret\src\zapret
+Стратегий: 23, целей: 8, GameFilter: включён (TCP+UDP 1024-65535)
+
+=== ALT_Custom ===
+RESULT	ALT_Custom	отказов 1, UDP	28/29	lat=724	dpi=ok+ok	udp=fail	video=ok	score=2976	class=2	error=
+TARGETS	Discord=4/4 CDN=4/4 YT=4/4 YTvideo=4/4 Google=4/4 Cloudflare=4/4 TG=3/4 DNS=1/1
+
+Служба zapret: RUNNING

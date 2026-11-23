@@ -1,0 +1,33 @@
+<UserControl x:Class="Zapret.App.Views.DiagnosticsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,0,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Диагностика" Style="{StaticResource H1}" />
+                <TextBlock x:Name="SummaryText" Style="{StaticResource Muted}" Margin="0,4,0,0"
+                           Text="Проверяет типичные причины, по которым обход не работает: службы, драйвер, прокси, DNS и конфликты." />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="CancelButton" Content="Отмена" Style="{StaticResource ButtonBase}" Margin="0,0,8,0"
+                        IsEnabled="False" Click="Cancel_Click" />
+                <Button x:Name="RunButton" Content="Проверить снова" Style="{StaticResource PrimaryButton}"
+                        Click="Run_Click" />
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ChecksPanel" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>

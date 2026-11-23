@@ -1,0 +1,10 @@
+bin/
+obj/
+dist/
+release/
+setup/
+src/zapret/
+src/*.zip
+*.user
+*.suo
+.vs/

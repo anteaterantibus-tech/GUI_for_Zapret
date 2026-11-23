@@ -1,0 +1,143 @@
+<UserControl x:Class="Zapret.App.Views.UpdateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="0,0,0,14">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <TextBlock Text="Обновления" Style="{StaticResource H1}" />
+                <TextBlock Style="{StaticResource Muted}" Margin="0,4,0,0"
+                           Text="Сборка zapret обновляется прямо из GitHub: архив скачивается, проверяется и устанавливается поверх текущей версии. Пользовательские списки и настройки сохраняются." />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="CancelCheckButton" Content="Отмена" Style="{StaticResource ButtonBase}"
+                        Margin="0,0,8,0" IsEnabled="False" Click="CancelCheck_Click" />
+                <Button x:Name="CheckButton" Content="Проверить обновления"
+                        Style="{StaticResource PrimaryButton}" Click="Check_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource Card}">
+                <StackPanel>
+                    <TextBlock Text="Установлено" Style="{StaticResource Muted}" FontSize="11" />
+                    <TextBlock x:Name="InstalledVersionText" Text="-" Style="{StaticResource H2}" Margin="0,4,0,0" />
+                    <TextBlock x:Name="InstalledPathText" Style="{StaticResource Mono}" FontSize="10.5"
+                               Margin="0,6,0,0" TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Style="{StaticResource Card}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="Последний релиз" Style="{StaticResource Muted}" FontSize="11" />
+                        <TextBlock x:Name="LatestVersionText" Text="не проверялось" Style="{StaticResource H2}"
+                                   Margin="0,4,0,0" />
+                        <TextBlock x:Name="LatestDateText" Style="{StaticResource Mono}" FontSize="10.5"
+                                   Margin="0,6,0,0" Text="" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                        <Button x:Name="UpdateButton" Content="Скачать и установить" Style="{StaticResource PrimaryButton}"
+                                IsEnabled="False" Click="Update_Click" />
+                        <Button x:Name="SkipButton" Content="Пропустить версию" Style="{StaticResource SmallButton}"
+                                Margin="0,8,0,0" IsEnabled="False" Click="Skip_Click" />
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="12" />
+                <ColumnDefinition Width="300" />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource Card}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Что изменилось" Style="{StaticResource H2}" />
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+                        <TextBlock x:Name="ChangelogText" Style="{StaticResource Muted}" FontSize="12"
+                                   TextWrapping="Wrap" Text="Нажмите «Проверить обновления», чтобы увидеть список изменений." />
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <StackPanel Grid.Column="2">
+                <Border Style="{StaticResource Card}">
+                    <StackPanel>
+                        <TextBlock Text="Параметры обновления" Style="{StaticResource H2}" />
+                        <TextBlock Text="Списки lists" Style="{StaticResource Muted}" FontSize="11.5" Margin="0,8,0,0" />
+                        <ComboBox x:Name="ListModeCombo" Margin="0,6,0,0">
+                            <ComboBoxItem Content="Объединить с новыми" Tag="merge" />
+                            <ComboBoxItem Content="Заменить новыми" Tag="replace" />
+                            <ComboBoxItem Content="Оставить мои" Tag="keep" />
+                        </ComboBox>
+                        <TextBlock x:Name="ListModeHint" Style="{StaticResource Muted}" FontSize="11" Margin="0,6,0,0"
+                                   Text="Объединение сохраняет ваши правки и добавляет только новые строки из релиза." />
+                        <CheckBox x:Name="PreserveFakesCheck" Content="Сохранить заменённые фейки" Margin="0,10,0,0" />
+                        <CheckBox x:Name="PreserveIpSetCheck" Content="Сохранить режим IPSet" />
+                        <TextBlock Style="{StaticResource Muted}" FontSize="11" Margin="0,8,0,0"
+                                   Text="Стратегия и служба автозапуска восстанавливаются после обновления автоматически." />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Резервные копии" Style="{StaticResource H2}" />
+                        <TextBlock x:Name="BackupText" Style="{StaticResource Muted}" FontSize="11.5"
+                                   Margin="0,6,0,0" Text="Перед обновлением создаётся полная копия папки сборки." />
+                        <Button Content="Открыть папку копий" Style="{StaticResource SmallButton}"
+                                Margin="0,10,0,0" HorizontalAlignment="Left" Click="OpenBackups_Click" />
+                        <Button x:Name="OpenReleaseButton" Content="Страница релиза" Style="{StaticResource SmallButton}"
+                                Margin="0,8,0,0" HorizontalAlignment="Left" IsEnabled="False"
+                                Click="OpenRelease_Click" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <Border Grid.Row="3" Style="{StaticResource Card}" Margin="0,12,0,0" Padding="12">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="StageText" Text="Готово" Style="{StaticResource Muted}" FontSize="11.5" />
+                    <TextBlock x:Name="ProgressText" Grid.Column="1" Style="{StaticResource Muted}" FontSize="11.5" />
+                </Grid>
+                <ProgressBar x:Name="UpdateProgress" Grid.Row="1" Height="6" Margin="0,8,0,0" Minimum="0" Maximum="100" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
